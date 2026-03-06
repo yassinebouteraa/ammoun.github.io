@@ -12,6 +12,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const sadMinion = 'https://media.giphy.com/media/BKg5Rj4IHj27K/giphy.gif';
     const happyMinion = 'https://media.giphy.com/media/hjvBoWTABwwNi/giphy.gif';
 
+    // POPULATE BACKGROUND GRID
+    const bgGrid = document.getElementById('bg-grid');
+    const totalTiles = 40; // High number to fill the screen
+    for (let i = 0; i < totalTiles; i++) {
+        const img = document.createElement('img');
+        img.src = usImages[i % 2];
+        img.className = 'bg-img-tile';
+        // Add random speed and delay to the animation
+        img.style.animationDuration = `${10 + Math.random() * 10}s`;
+        img.style.animationDelay = `${Math.random() * 5}s`;
+
+        // Safety for local images
+        img.onerror = () => {
+            img.src = `https://images.unsplash.com/photo-1518199266791-5375a83190b2?w=300&q=80`;
+        };
+
+        bgGrid.appendChild(img);
+    }
+
     // Set initial sad Minion
     centerImg.src = sadMinion;
 
@@ -66,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!hasClickedNo) {
             handleNoClick();
             // Subtle change to the title to hint what to do
-            mainText.innerHTML = "I'm sorry ❤️<br><span style='font-size: 1rem; opacity: 0.7;'>(Try clicking No first... trust me)</span>";
+            mainText.innerHTML = "I'm sorry ammoun ❤️<br><span style='font-size: 1rem; opacity: 0.7;'>(Try clicking No first... trust me)</span>";
             return;
         }
 
