@@ -34,8 +34,10 @@ body {
     gap: 15px;
     padding: 20px;
     overflow: hidden;
-    filter: blur(3px) grayscale(40%);
-    opacity: 0.25;
+    filter: blur(0px) grayscale(0%);
+    /* Removed blur and grayscale */
+    opacity: 0.5;
+    /* Increased opacity for more clarity */
 }
 
 .bg-img-tile {
